@@ -1,7 +1,7 @@
 version: 2
 
 references:
-    fetch_source: &fetch_source:
+    fetch_source: &fetch_source
         checkout
 
     getting_py_version: &getting_py_version
