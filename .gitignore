@@ -1,0 +1,4 @@
+# ignore below files & dirs to push on repo
+
+venv/
+

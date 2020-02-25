@@ -1,0 +1,21 @@
+version: 2
+
+jobs:
+    running_flask:
+        docker:
+            - image: circleci/python:3.6.1
+        working_directory: ~/flask-app
+        steps:
+            - checkout
+            - run:
+                name: Get Python version
+                command: python --version
+            - run:
+                name: Installing Dependencies
+                command: sudo pip install -r requirements.txt
+
+workflows:
+    version: 2
+    test:
+        jobs:
+            - running_flask
