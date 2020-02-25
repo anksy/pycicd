@@ -5,6 +5,8 @@ jobs:
         docker:
             - image: circleci/python:3.6.1
         working_directory: ~/flask-app
+        restore_cache:
+            keys: v1-dependencies-{{ checksum "requirements.txt" }}
         steps:
             - checkout
             - run:
@@ -13,6 +15,10 @@ jobs:
             - run:
                 name: Installing Dependencies
                 command: sudo pip install -r requirements.txt
+            - save_cache:
+                paths: venv
+                key: v1-dependencies-{{ checksum "requirements.txt" }}
+
 
 workflows:
     version: 2
