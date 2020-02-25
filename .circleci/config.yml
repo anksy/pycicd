@@ -16,6 +16,6 @@ jobs:
 
 workflows:
     version: 2
-    test:
+    flask_app:
         jobs:
             - running_flask
