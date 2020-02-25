@@ -19,6 +19,9 @@ references:
                 paths: venv
                 key: v1-dependencies-{{ checksum "requirements.txt" }}
 
+    saving_artifacts: &saving_artifacts
+        store_artifacts:
+            path: build
 jobs:
     running_flask:
         docker:
