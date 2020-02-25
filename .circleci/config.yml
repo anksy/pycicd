@@ -1,10 +1,7 @@
 version: 2
 
 references:
-    app_working_dir: &app_working_dir
-        working_directory: ~/flask-app
-
-    fetch_source: &fetch_source
+    fetch_source: &fetch_source:
         checkout
 
     getting_py_version: &getting_py_version
@@ -26,7 +23,7 @@ jobs:
     running_flask:
         docker:
             - image: circleci/python:3.6.1
-        *app_working_dir
+        working_directory: ~/flask-app
         restore_cache:
             keys: v1-dependencies-{{ checksum "requirements.txt" }}
         steps:
